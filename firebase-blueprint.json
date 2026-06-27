@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Citizen profile with levels, karma points, and civic badges",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "karmaPoints": { "type": "integer" },
+        "level": { "type": "integer" },
+        "reportsSubmitted": { "type": "integer" },
+        "validationsDone": { "type": "integer" },
+        "badges": { "type": "array" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "karmaPoints", "level", "reportsSubmitted", "validationsDone", "badges", "createdAt"]
+    },
+    "CommunityIssue": {
+      "title": "CommunityIssue",
+      "description": "Hyperlocal problem report submitted by a citizen, with AI tags and community verification",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "reporterId": { "type": "string" },
+        "reporterName": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "locationName": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["reported", "verified", "in_progress", "resolved"] },
+        "upvotesCount": { "type": "integer" },
+        "upvotedBy": { "type": "array" },
+        "validatedCount": { "type": "integer" },
+        "validatedBy": { "type": "array" },
+        "aiRiskScore": { "type": "integer" },
+        "aiTags": { "type": "array" },
+        "aiResolutionPlan": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "reporterId", "reporterName", "title", "description", "category", "locationName", "latitude", "longitude", "status", "upvotesCount", "upvotedBy", "validatedCount", "validatedBy", "aiRiskScore", "aiTags", "aiResolutionPlan", "createdAt", "updatedAt"]
+    },
+    "CommunityComment": {
+      "title": "CommunityComment",
+      "description": "Comments left on specific hyperlocal reports",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "issueId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "issueId", "userId", "userName", "text", "createdAt"]
+    },
+    "NeighborhoodAlert": {
+      "title": "NeighborhoodAlert",
+      "description": "Broadcast alerts regarding urgent public works or public safety",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string" },
+        "severity": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "description", "type", "severity", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Citizen profiles with gamified stats"
+    },
+    "/issues/{issueId}": {
+      "schema": "CommunityIssue",
+      "description": "Reported hyperlocal issues and tracking data"
+    },
+    "/comments/{commentId}": {
+      "schema": "CommunityComment",
+      "description": "Chronological comment stream for each specific issue"
+    },
+    "/alerts/{alertId}": {
+      "schema": "NeighborhoodAlert",
+      "description": "Urgent safety broadcasts for neighbors"
+    }
+  }
+}
