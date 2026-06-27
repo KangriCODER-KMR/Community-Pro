@@ -7,6 +7,7 @@ import ImpactDashboard from './ImpactDashboard';
 import CivicCopilot from './CivicCopilot';
 import SensorTerminal from './SensorTerminal';
 import AdminTerminal from './AdminTerminal';
+import BrandLogo from './BrandLogo';
 import { 
   Shield, 
   Award, 
@@ -685,9 +686,10 @@ export default function DashboardLayout({ currentUser, onLogout }: DashboardLayo
         <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
           
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div className="w-9.5 h-9.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400">
-              <Shield className="w-5.5 h-5.5 text-emerald-400 animate-pulse" />
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 bg-slate-950/40 p-1.5 rounded-xl border border-slate-800/60 shadow-inner">
+              <BrandLogo size="sm" variant="primary" />
+              <BrandLogo size="sm" variant="secondary" />
             </div>
             <div>
               <span className="font-extrabold text-sm tracking-tight text-white block font-display">Community <span className="text-emerald-400">Hero</span></span>

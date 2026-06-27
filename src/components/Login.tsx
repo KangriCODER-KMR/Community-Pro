@@ -3,6 +3,7 @@ import { dbService } from '../lib/db';
 import { UserProfile } from '../types';
 import { Shield, Zap, Sparkles, AlertCircle, Phone, Smartphone, Lock, ArrowLeft, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
+import BrandLogo from './BrandLogo';
 
 interface LoginProps {
   onLoginSuccess: () => void;
@@ -150,14 +151,26 @@ export default function Login({ onLoginSuccess }: LoginProps) {
 
         {/* Branding */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-400/30 rounded-2xl mb-4 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-            <Shield className="w-8 h-8 text-emerald-400 animate-pulse" />
+          <div className="flex items-center justify-center gap-12 mb-5 relative px-2">
+            <div className="relative flex flex-col items-center">
+              <BrandLogo size="lg" variant="primary" showText={true} />
+            </div>
+            
+            {/* Pulsing magic connection thread */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-12 flex items-center justify-center">
+              <div className="h-[2px] w-12 bg-gradient-to-r from-emerald-500 via-fuchsia-500 to-pink-500 opacity-60 animate-pulse" />
+              <div className="absolute w-2 h-2 rounded-full bg-white animate-ping" />
+            </div>
+
+            <div className="relative flex flex-col items-center">
+              <BrandLogo size="lg" variant="secondary" showText={true} />
+            </div>
           </div>
           <h1 className="text-4xl font-black tracking-tight text-white mb-2 font-display">
             Community <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 font-display select-none">Hero</span>
           </h1>
-          <p className="text-slate-300 text-sm max-w-xs mx-auto leading-relaxed font-sans">
-            AI-powered hyperlocal safety prioritization hub. Coordinate municipal actions and civic reports.
+          <p className="text-slate-300 text-xs max-w-xs mx-auto leading-relaxed font-sans">
+            "Together we can do magic and save our society." Active dual protection and collaborative dispatch platform.
           </p>
         </div>
 

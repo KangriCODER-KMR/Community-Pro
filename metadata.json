@@ -1,6 +1,6 @@
 {
-  "name": "The Last-Minute Life Saver",
-  "description": "An AI-powered proactive productivity companion designed to conquer freeze-mode, decompose overwhelming tasks into micro-steps, and trigger multi-channel escalation nudges before deadlines are missed.",
+  "name": "Community Hero",
+  "description": "An AI-powered crowdsourced civic reporting and municipal dispatch platform with real-time hazard alerts and citizen gamification mechanics.",
   "requestFramePermissions": ["geolocation", "camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
