@@ -109,15 +109,15 @@ export default function Login({ onLoginSuccess }: LoginProps) {
     }
 
     const cleanEmail = adminEmail.trim().toLowerCase();
-    const isAuthorized = cleanEmail.endsWith('.gov.in') || cleanEmail.endsWith('@municipal.in') || cleanEmail.endsWith('@communityhero.in') || cleanEmail === 'admin@communityhero.in';
+    const isAuthorized = cleanEmail === 'anayatgull019@gmail.com';
     
     if (!isAuthorized) {
-      setError('Access Denied. Only authorized personnel with verified municipal or government email domains (.gov.in or @municipal.in) have access to the admin portal.');
+      setError('Access Denied. Only the designated administrator (anayatgull019@gmail.com) is authorized to log in.');
       return;
     }
 
-    if (adminPasscode.trim() !== 'admin123') {
-      setError('Invalid admin passcode. Hint: Use admin123');
+    if (adminPasscode.trim() !== 'admin786') {
+      setError('Invalid admin passcode.');
       return;
     }
 
@@ -369,11 +369,8 @@ export default function Login({ onLoginSuccess }: LoginProps) {
             <div className="bg-purple-950/40 border border-purple-800/30 rounded-xl p-3 text-[11px] text-purple-300 space-y-1">
               <span className="font-extrabold block">🛡️ MUNICIPAL GATEWAY SECURITY ACTIVE</span>
               <p className="leading-relaxed text-slate-400">
-                Only verified government accounts containing <code className="bg-slate-950 text-purple-400 px-1 py-0.5 rounded">.gov.in</code> or <code className="bg-slate-950 text-purple-400 px-1 py-0.5 rounded">@municipal.in</code> are authorized.
+                Access is restricted to authorized personnel. Use your registered administrator email address and secure passcode to log in.
               </p>
-              <div className="text-[10px] text-slate-500 font-mono mt-1 pt-1 border-t border-purple-950">
-                Use: <strong className="text-purple-400">amit.sharma@municipal.gov.in</strong> • Passcode: <strong className="text-purple-400">admin123</strong>
-              </div>
             </div>
 
             <div>
@@ -411,7 +408,6 @@ export default function Login({ onLoginSuccess }: LoginProps) {
                 <label className="block text-slate-400 text-xs font-medium" htmlFor="admin-passcode-input">
                   Admin Access Passcode
                 </label>
-                <span className="text-[10px] font-mono text-purple-400">Key: admin123</span>
               </div>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />

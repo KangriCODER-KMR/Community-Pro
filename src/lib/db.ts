@@ -195,8 +195,8 @@ const DEFAULT_USERS: UserProfile[] = [
   },
   {
     id: 'admin_1',
-    name: 'Inspector Rajesh Sharma',
-    email: 'rajesh.sharma@municipal.gov.in',
+    name: 'Admin Anayat',
+    email: 'anayatgull019@gmail.com',
     phone: '+91 9000012345',
     isPhoneVerified: true,
     karmaPoints: 1000,
@@ -228,7 +228,7 @@ export const dbService = {
     const id = cleanEmail.split('@')[0] || Math.random().toString(36).substring(2, 9);
     const isAdmin = typeof forceIsAdmin === 'boolean'
       ? forceIsAdmin
-      : (cleanEmail.endsWith('.gov.in') || cleanEmail.endsWith('@municipal.in') || cleanEmail.endsWith('@communityhero.in') || cleanEmail.includes('admin') || name.toLowerCase().includes('inspector') || name.toLowerCase().includes('admin'));
+      : (cleanEmail === 'anayatgull019@gmail.com');
     
     const profile: UserProfile = {
       id,
@@ -296,7 +296,7 @@ export const dbService = {
     }
 
     const cleanEmail = (user.email || '').toLowerCase().trim();
-    const isAdmin = cleanEmail.endsWith('.gov.in') || cleanEmail.endsWith('@municipal.in') || cleanEmail.endsWith('@communityhero.in') || cleanEmail.includes('admin');
+    const isAdmin = cleanEmail === 'anayatgull019@gmail.com';
 
     const profile: UserProfile = {
       id: user.uid,
